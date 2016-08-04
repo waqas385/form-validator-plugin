@@ -14,21 +14,21 @@ $("form").wValidateForm();
 
 I will explain its working via following example:
 
-<!-- CASE 1: HTML FORM SUBMIT-->
+# CASE 1: HTML FORM SUBMIT
 <form name="loginForm" onSubmit="$(this).wValidateForm()">
 	<input type="email" name="email" id="email" class="required valid_email" placeholder="Email"/>
 	<input type="password" name="password" id="password" class="required" placeholder="Password"/>
 	<input type="submit" value="Send"/>
 </form>
 
-<!-- CASE 2: ON CLICK EVENT -->
+# CASE 2: ON CLICK EVENT 
 <form name="loginForm" id="loginForm">
 	<input type="email" name="email" id="email" class="required valid_email" placeholder="Email"/>
 	<input type="password" name="password" id="password" class="required" placeholder="Password"/>
 	<input type="submit" onClick="$('loginForm').wValidateForm()" value="Send"/>
 </form>
 
-<!-- CASE 3: ON CLICK EVENT -->
+# CASE 3: ON CLICK EVENT 
 <form name="loginForm" id="loginForm">
 	<input type="email" name="email" id="email" class="required valid_email" placeholder="Email"/>
 	<input type="password" name="password" id="password" class="required" placeholder="Password"/>
