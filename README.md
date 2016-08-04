@@ -23,35 +23,30 @@ I will explain its working via following example:
 </form>
 ```
 
-# CASE 2: ON CLICK EVENT 
-```
-<form name="loginForm" id="loginForm">
-	<input type="email" name="email" id="email" class="required valid_email" placeholder="Email"/>
-	<input type="password" name="password" id="password" class="required" placeholder="Password"/>
-	<input type="submit" onClick="$('loginForm').wValidateForm()" value="Send"/>
-</form>
-```
-
 # CASE 3: ON CLICK EVENT 
 ```
-<form name="loginForm" id="loginForm">
+<form name="loginFormSecond" id="loginFormSecond">
 	<input type="email" name="email" id="email" class="required valid_email" placeholder="Email"/>
 	<input type="password" name="password" id="password" class="required" placeholder="Password"/>
 	<input type="button" id="sendForm" value="Send"/>
 </form>
 
 <script>
-// Make sure you have included Jquery library file
+// Jquery oload function
+$(function(){
+	// Make sure you have included Jquery library file
 
-$("#sendForm").click(function(){
-	if ($('loginForm').wValidateForm()) {
-		// Form validates
-		// Send form data via AJAX
-		var dataString = $('loginForm').serialize();
-		// Perform AJAX submition
-	} 
-	
-	// ELSE do nothing
+	$("#sendForm").click(function(){
+		if ($('#loginFormSecond').wValidateForm()) {
+			// Form validates
+			// Send form data via AJAX
+			var dataString = $('loginFormSecond').serialize();
+			// Perform AJAX submition
+		} 
+
+		// ELSE do nothing
+	});
 });
+
 </script>
 ```
