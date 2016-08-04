@@ -28,7 +28,7 @@ $.fn.wValidateForm = function () {
     var alertMsg = '';
     var password = null, confirm_password = null;
     $.each(a, function () {
-        var e = $("[name='"+this.name+"']");
+        var e = $(this).find("[name='"+this.name+"']");
         var v = e.val();
         // field is required & empty
         if (e.hasClass("required")
