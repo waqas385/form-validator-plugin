@@ -33,7 +33,15 @@ $.fn.wValidateForm = function () {
     var alertMsg = '';
     var password = null, confirm_password = null;
     $.each(a, function () {
-        var e = $(this).find("[name='"+this.name+"']");
+        var e = $("[name='"+this.name+"']");
+        // Check added for serialize array and non serialize array
+        if (o instanceof HTMLElement) {
+            e = $(this);
+        }
+        // incase button
+        if ($(e).is('button')) {
+            return true;
+        }
         var v = e.val();
         // field is required & empty
         if (e.hasClass("required")
@@ -95,7 +103,12 @@ $.fn.wValidateForm = function () {
     // validate entered value message
     if (invalid_entry.length > 0) {
         $.each(invalid_entry, function(i, e){
-            alertMsg += "Invalid "+correct_entry[i]+" entered.\n";
+            var eleName = e.prop('name');
+            var eleMsg = "Invalid "+correct_entry[i]+" is entered.\n";
+            
+            // Apply border
+            e.addClass('bdr-red');
+            alertMsg += eleMsg;
         });
 
         alert(alertMsg);
