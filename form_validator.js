@@ -21,7 +21,12 @@ String.prototype.isValidNumber = function () {
 
 // Validates form fields
 $.fn.wValidateForm = function () {
-    var a = this.serializeArray();
+    //var a = this.serializeArray();
+    // To validate all fields within any container
+    var  a = $(this).find('input,textarea,select');
+    
+    // Apply class to inputs
+    a.removeClass('bdr-red');
     var inp = new Array();
     var invalid_entry = new Array();
     var correct_entry = new Array();
