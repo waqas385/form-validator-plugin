@@ -69,7 +69,18 @@ $.fn.wValidateForm = function () {
     if (inp.length > 0) {
         
         $.each(inp, function(i, e){
-            alertMsg += e.prop('name').wucword().replace(/_/g, ' ') + " is required.\n";
+            var eleName = e.prop('name');
+            var eleMsg = $.trim(eleName.wucword().replace(/[_\[\]\{\}]|temp/gi, '')) + " is required.\n";
+            // data-label exists
+            // to show custom message for specific field
+            if ($.trim($(e).data('label')) != "") {
+                eleMsg = $(e).data('label') + " is required.\n";
+            }
+             
+            // Apply forder
+            e.addClass('bdr-red');
+
+            alertMsg += eleMsg;
         });
 
         alert(alertMsg);
